@@ -1,60 +1,109 @@
 package ie.dit;
 
-public class star
+import processing.data.TableRow;
+
+public class Star
 {
-    private int hab;
-
     private String displayName;
-
-    private float distance;
-    private float xG,yG,zG;
+    private int hab;
+    private float xG;
+    private float yG;
+    private float zG;
     private float absMag;
-    
-    public int getHab()
-    {
-        return hab;
-    }
-    public void setHab(int hab)
-    {
-        this.hab= hab;
-    }
 
     public void setDisplayName(String displayName)
     {
         this.displayName = displayName;
     }
-    public String getDisplayName(String displayName)
+
+    public String getDisplayName()
     {
         return displayName;
     }
 
-    public void setDistance(float distance)
-    {
-        this.distance = distance;
+    /**
+     * @return the hab
+     */
+    public int getHab() {
+        return hab;
     }
 
-    public void getDistance()
-    {
-        return distance;
+    /**
+     * @param hab the hab to set
+     */
+    public void setHab(int hab) {
+        this.hab = hab;
     }
 
-    public void setCoords(float xG,float yG,float zG)
-    {
-        coords = new PVector(xG,yG,zG);
+    /**
+     * @return the xG
+     */
+    public float getxG() {
+        return xG;
     }
 
-    public float getCooords()
-    {
-        return coords;
+    /**
+     * @param xG the xG to set
+     */
+    public void setxG(float xG) {
+        this.xG = xG;
     }
 
-    public void setabsMag()
-    {
+    /**
+     * @return the yG
+     */
+    public float getyG() {
+        return yG;
+    }
+
+    /**
+     * @param yG the yG to set
+     */
+    public void setyG(float yG) {
+        this.yG = yG;
+    }
+
+    /**
+     * @return the zG
+     */
+    public float getzG() {
+        return zG;
+    }
+
+    /**
+     * @param zG the zG to set
+     */
+    public void setzG(float zG) {
+        this.zG = zG;
+    }
+
+    /**
+     * @return the absMag
+     */
+    public float getAbsMag() {
+        return absMag;
+    }
+
+    /**
+     * @param absMag the absMag to set
+     */
+    public void setAbsMag(float absMag) {
         this.absMag = absMag;
     }
 
-    public float getabsMag()
+    public String toString()
     {
-        return absMag;
+        return displayName + "\t" + hab + "\t" + xG + "\t" + yG + "\t" + zG + "\t" + absMag;  
     }
+
+    public Star(TableRow row)
+    {
+        displayName = row.getString("Display Name");
+        hab = row.getInt("Hab?");
+        xG = row.getFloat("Xg");
+        yG = row.getFloat("Yg");
+        zG = row.getFloat("Zg");
+        absMag = row.getFloat("AbsMag");
+    }
+
 }
