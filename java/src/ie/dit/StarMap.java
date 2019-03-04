@@ -22,6 +22,32 @@ public class StarMap extends PApplet
         loadData();
         printStars();
         border = width * 0.05f;
+
+        //Testing the map function
+        System.out.println(
+        map(25,20,30,30,40)
+        );
+        System.out.println(
+            map1(25,20,30,30,40)
+        );
+        System.out.println(
+            map(0,-100,200,100,500)
+        );
+        System.out.println(
+            map1(0,-100,200,100,500)
+        );
+
+        Star s = new Star();
+        s.setDisplayName("DIT");
+        stars.add(s);
+
+        Star s1 = stars.get(0);
+        s1.setDisplayName("TU Dublin");
+
+        System.out.println(s);
+        System.out.println(stars.get(0));
+        System.out.println(s1);
+
     }
 
     public void loadData()
@@ -43,7 +69,7 @@ public class StarMap extends PApplet
             stars.add(star);     
         }
     }
-
+    
     public void printStars()
     {
         for(Star star:stars)
@@ -70,7 +96,7 @@ public class StarMap extends PApplet
             text(i, border / 2, x);
         }
     }
-
+    /*
     public void drawStars()
     {
         textAlign(LEFT, CENTER);
@@ -93,6 +119,7 @@ public class StarMap extends PApplet
 
         }
     } 
+    */
 
     public void mouseClicked()
     {
@@ -103,7 +130,21 @@ public class StarMap extends PApplet
     {
         background(0);
         drawGrid();
-        drawStars();
+        //drawStars();
+        printStars();
+
+    }
+
+    private float map1(float a, float b, float c, float d,float e)
+    {
+        float range1 = c - b;
+        float howFar = a - b;
+
+        float range2= e - d;
+        
+        return d + (howFar / range1)* range2;
+
+
     }
 
     private ArrayList<Star> stars = new ArrayList<Star>();
