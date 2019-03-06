@@ -96,7 +96,7 @@ public class StarMap extends PApplet
             text(i, border / 2, x);
         }
     }
-    /*
+    
     public void drawStars()
     {
         textAlign(LEFT, CENTER);
@@ -119,7 +119,7 @@ public class StarMap extends PApplet
 
         }
     } 
-    */
+    
 
     public void mouseClicked()
     {
@@ -130,7 +130,7 @@ public class StarMap extends PApplet
     {
         background(0);
         drawGrid();
-        //drawStars();
+        drawStars();
         printStars();
 
     }
