@@ -5,7 +5,6 @@ import processing.core.PApplet;
 import processing.data.Table;
 import processing.data.TableRow;
 
-
 public class CafeRubis extends PApplet
 {
     ArrayList<Product> products = new ArrayList<Product>();
@@ -83,6 +82,12 @@ public class CafeRubis extends PApplet
             text(p.getName(),  x + buttonWidth * 0.5f, y + buttonHeight * 0.5f);
         }
     }
+    /*
+    void drawOrder()
+    {
+        for int i < products.get(i);
+    }
+    */
 
     public void draw()
     {
