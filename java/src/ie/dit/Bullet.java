@@ -1,6 +1,7 @@
 package ie.dit;
 
 import processing.core.PVector;
+import sun.jvm.hotspot.debugger.windbg.WindbgThreadFactory;
 
 public class Bullet
 {
@@ -17,6 +18,33 @@ public class Bullet
         forward = new PVector(0, -1);
         this.rotation = rotation; 
         speed = 5;
+
+        if(pos.x<0)
+        {
+            pos.x =yasc.width;
+        }
+
+        if(pos.x>yasc.width)
+        {
+            pos.x = 0;
+        }
+
+        if(pos.y<0)
+        {
+            pos.y = yasc.height;
+        }
+
+        if (pos.y > yasc.height)
+        {
+            pos.y=0;
+        }
+
+        alive += yasc.timeDelta;
+        if(alive >= 5.0)
+        {
+            yasc.bullets.remove(this);
+        }
+
     }  
 
     public void render()
@@ -36,6 +64,8 @@ public class Bullet
 
         // pos += forward * speed
         pos.add(PVector.mult(forward, speed));
+
+
     }
 
     /**
