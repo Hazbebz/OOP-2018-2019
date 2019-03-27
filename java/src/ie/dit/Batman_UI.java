@@ -8,7 +8,7 @@ public class Batman_UI extends PApplet
 
     public void settings()
     {
-        size(500,1000);
+        size(1000,600);
     }
 
     public void setup()
