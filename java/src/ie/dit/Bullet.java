@@ -3,16 +3,11 @@ package ie.dit;
 import processing.core.PVector;
 import sun.jvm.hotspot.debugger.windbg.WindbgThreadFactory;
 
-public class Bullet
+public class Bullet extends GameObject
 {
-    private PVector pos;
-    private PVector forward;
-    private float rotation;
-    private float speed;
-    private YASC yasc;
-
     public Bullet(YASC yasc, float x, float y, float rotation)
     {
+<<<<<<< HEAD
         this.yasc = yasc;
         pos = new PVector(x, y);
         forward = new PVector(0, -1);
@@ -45,6 +40,9 @@ public class Bullet
             yasc.bullets.remove(this);
         }
 
+=======
+        super(yasc, x, y, rotation, 5);
+>>>>>>> d7d78f9b01f7865682ab1f94e2c03fdc6def4a4e
     }  
 
     public void render()
@@ -64,6 +62,7 @@ public class Bullet
 
         // pos += forward * speed
         pos.add(PVector.mult(forward, speed));
+<<<<<<< HEAD
 
 
     }
@@ -95,47 +94,32 @@ public class Bullet
     public void setForward(PVector forward) {
         this.forward = forward;
     }
+=======
+>>>>>>> d7d78f9b01f7865682ab1f94e2c03fdc6def4a4e
 
-    /**
-     * @return the rotation
-     */
-    public float getRotation() {
-        return rotation;
+        if (pos.x < 0)
+        {
+            pos.x = yasc.width;
+        }
+        if (pos.x > yasc.width)
+        {
+            pos.x = 0;
+        }
+        if (pos.y < 0)
+        {
+            pos.y = yasc.height;
+        }
+        if (pos.y > yasc.height)
+        {
+            pos.y = 0;
+        }
+        alive += yasc.timeDelta;
+        if (alive >= 5.0)
+        {
+            yasc.gameObjects.remove(this);
+        }
     }
 
-    /**
-     * @param rotation the rotation to set
-     */
-    public void setRotation(float rotation) {
-        this.rotation = rotation;
-    }
+    float alive;
 
-    /**
-     * @return the speed
-     */
-    public float getSpeed() {
-        return speed;
-    }
-
-    /**
-     * @param speed the speed to set
-     */
-    public void setSpeed(float speed) {
-        this.speed = speed;
-    }
-
-    /**
-     * @return the yasc
-     */
-    public YASC getYasc() {
-        return yasc;
-    }
-
-    /**
-     * @param yasc the yasc to set
-     */
-    public void setYasc(YASC yasc) {
-        this.yasc = yasc;
-    }
-    
 }
