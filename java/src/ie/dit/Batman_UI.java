@@ -23,7 +23,16 @@ public class Batman_UI extends PApplet
     public void drawFrame()
     {
         stroke(0,255,0);
-        rect(Rect_X,Rect_Y,Rect_W,Rect_H);
+        fill(0);
+        line(10,10,10,590);
+        line(10,590,40,590);
+        line(40,590,60,550);
+        line(60,550,180,550);
+        line(180,550,200,590);
+        line(200,590,990,590);
+        line(990,590,990,10);
+        line(990,10,10,10);
+        
         
     }
 
