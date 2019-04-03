@@ -15,13 +15,15 @@ public class Batman_UI extends PApplet
     {
         
     }
-    
+    /*
     float Rect_X = 10;
     float Rect_Y = Rect_X;
     float Rect_H = 580;
     float Rect_W = 980;
+    */
     public void drawFrame()
     {
+        //outer frame for screen objects
         stroke(0,255,0);
         fill(0);
         line(10,10,10,590);
@@ -32,6 +34,19 @@ public class Batman_UI extends PApplet
         line(200,590,990,590);
         line(990,590,990,10);
         line(990,10,10,10);
+        //end outer frame
+
+        //inner frame for screen objects 
+        line(200,10,200,400);
+        line(205,10,205,400);
+        line(205,400,770,400);
+        line(10,400,200,400);
+        line(10,405,770,405);
+
+        line(770,10,770,400);
+        line(770,405,770,590);
+        line(775,10,775,590);
+      
         
         
     }
