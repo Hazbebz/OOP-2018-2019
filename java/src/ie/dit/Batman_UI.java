@@ -15,12 +15,8 @@ public class Batman_UI extends PApplet
     {
         
     }
-    /*
-    float Rect_X = 10;
-    float Rect_Y = Rect_X;
-    float Rect_H = 580;
-    float Rect_W = 980;
-    */
+
+
     public void drawFrame()
     {
         //outer frame for screen objects
@@ -46,15 +42,26 @@ public class Batman_UI extends PApplet
         line(770,10,770,400);
         line(770,405,770,590);
         line(775,10,775,590);
+        
       
         
         
+    }
+
+    public void drawEllipse(){
+
+        for(int i = 0 ; i < 5; i++)
+        {
+            ellipse(882,485,200,200);
+        }
     }
 
     public void draw()
     {
         background(0);
         drawFrame();
+        drawEllipse();
+        
     }
     
 }
