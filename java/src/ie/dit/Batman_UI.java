@@ -18,6 +18,7 @@ public class Batman_UI extends PApplet
     public void setup()
     {
         loadData();   
+        printVills();
     }
 
     public void loadData()
@@ -28,6 +29,12 @@ public class Batman_UI extends PApplet
         {
             Villain villain = new Villain(row);
             villains.add(villain);
+        }
+    }
+
+    public void printVills() {
+        for (Villain villain : villains) {
+            System.out.println(villain);
         }
     }
     
