@@ -19,6 +19,7 @@ public class Batman_UI extends PApplet
     {
         loadData();   
         printVills();
+
     }
 
     public void loadData()
