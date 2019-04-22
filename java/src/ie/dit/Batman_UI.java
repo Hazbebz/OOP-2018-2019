@@ -1,7 +1,11 @@
 //Controlling class that allows for drawing 
 package ie.dit;
 
+import java.util.ArrayList;
+
 import processing.core.PApplet;
+import processing.data.Table;
+import processing.data.TableRow;
 
 public class Batman_UI extends PApplet
 {
@@ -13,10 +17,20 @@ public class Batman_UI extends PApplet
 
     public void setup()
     {
-        
+        loadData();   
     }
 
+    public void loadData()
+    {
+        Table table = loadTable("Villains.csv", "header");
 
+        for (TableRow row : table.rows()) 
+        {
+            Villain villain = new Villain(row);
+            villains.add(villain);
+        }
+    }
+    
     public void drawFrame()
     {
         //outer frame for screen objects
@@ -42,17 +56,21 @@ public class Batman_UI extends PApplet
         line(770,10,770,400);
         line(770,405,770,590);
         line(775,10,775,590);
-        
-      
-        
-        
     }
 
     public void drawEllipse(){
+        int ellipse_x1 = 882;
+        int ellipse_y1 = 485;
+        int width = 200;
+        int height = 200;
+        int num_ellipses = 5;
 
-        for(int i = 0 ; i < 5; i++)
+
+        for(int i = 0 ; i < num_ellipses;i++)
         {
-            ellipse(882,485,200,200);
+            ellipse(ellipse_x1,ellipse_y1,width,height);
+            height -=40;
+            width-=40;
         }
     }
 
@@ -61,7 +79,7 @@ public class Batman_UI extends PApplet
         background(0);
         drawFrame();
         drawEllipse();
-        
     }
-    
+
+    private ArrayList<Villain> villains = new ArrayList<Villain>();
 }
