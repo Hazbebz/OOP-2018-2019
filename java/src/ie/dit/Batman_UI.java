@@ -7,6 +7,7 @@ import processing.core.PApplet;
 import processing.data.Table;
 import processing.data.TableRow;
 
+
 public class Batman_UI extends PApplet
 {
 
@@ -24,7 +25,7 @@ public class Batman_UI extends PApplet
 
     public void loadData()
     {
-        Table table = loadTable("Villains.csv", "header");
+        Table table = loadTable("Villains.csv","header");
 
         for (TableRow row : table.rows()) 
         {
@@ -36,6 +37,29 @@ public class Batman_UI extends PApplet
     public void printVills() {
         for (Villain villain : villains) {
             System.out.println(villain);
+        }
+    }
+
+    public void villains_to_screen() {
+        int x = 250;
+        int y = 425;
+        int ygap = 10;
+        int xgap = 50;
+        for(int i = 0 ; i < villains.size() ; i ++)
+        {
+            Villain villain = villains.get(i);
+            stroke(0,255,0);
+            textAlign(CENTER, CENTER);
+            fill(0,255,0);
+            text(villain.getAlias(),x,y + ygap);
+            x += 60;
+            text(villain.getLocation(),x + xgap,y + ygap);
+            x += 80;
+            text(villain.getThreat_level(),x+ xgap,y + ygap);
+            x += 100;
+            text(villain.getName(),x+ xgap,y + ygap);
+            y +=28;
+            x=250;
         }
     }
     
@@ -87,6 +111,7 @@ public class Batman_UI extends PApplet
         background(0);
         drawFrame();
         drawEllipse();
+        villains_to_screen();
     }
 
     private ArrayList<Villain> villains = new ArrayList<Villain>();
