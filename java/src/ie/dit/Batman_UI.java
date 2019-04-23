@@ -57,7 +57,9 @@ public class Batman_UI extends PApplet
             x += 80;
             text(villain.getThreat_level(),x+ xgap,y + ygap);
             x += 100;
-            text(villain.getName(),x+ xgap,y + ygap);
+            text(villain.getName(),x + xgap,y + ygap);
+            x+=100;
+           // text(villain.getWeakness(),x + xgap,y + ygap);
             y +=28;
             x=250;
         }

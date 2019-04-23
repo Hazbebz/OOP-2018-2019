@@ -8,6 +8,7 @@ public class Villain{
     private String Location;
     private String Threat_Level;
     private String Name;
+    private String Weakness;
 
     /**
      * @return the alias
@@ -64,7 +65,27 @@ public class Villain{
     public void setName(String name) {
         Name = name;
     }
+      /**
+     * @return the threat_Level
+     */
+    public String getThreat_Level() {
+        return Threat_Level;
+    }
 
+    /**
+     * @return the weakness
+     */
+    public String getWeakness() {
+        return Weakness;
+    }
+
+    /**
+     * @param weakness the weakness to set
+     */
+    public void setWeakness(String weakness) {
+        Weakness = weakness;
+    }
+    
     public String toString()
     {
         return Alias + "\t" + Location + "\t" + Threat_Level + "\t" + Name ;
@@ -82,4 +103,6 @@ public class Villain{
     {
 
     }
+
+  
 }

@@ -1,7 +1,7 @@
-﻿Alias,Location,Threat_Level,Name
-Alias,Location,Threat_Level,Name
-Joker,Arkham Asylum,High,Jack Napier
-Harley Quinn,Unknown,Medium,Harlene Quinzel 
-Killer Croc,Stonegate,High,Waylon Jones
-Red Hood,Unknown,High,Jason Todd
-Black Mask,Gotham,Medium,Roman Sionis
+﻿Alias,Location,Threat_Level,Name,Weakness
+Alias,Location,Threat_Level,Real Name,Weakness
+Joker,Arkham Asylum,High,Jack Napier,Harley
+Harley Quinn,Unknown,Medium,Harlene Quinzel,Joker
+Killer Croc,Stonegate,High,Waylon Jones,Low Intellect
+Red Hood,Unknown,High,Jason Todd,Rage
+Black Mask,Gotham,Medium,Roman Sionis,Rage
