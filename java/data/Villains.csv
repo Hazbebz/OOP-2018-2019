@@ -1,6 +1,6 @@
 ﻿Alias,Location,Threat_Level,Name,Weakness
-Alias,Location,Threat_Level,Real Name,Weakness
-Joker,Arkham Asylum,High,Jack Napier,Harley
+Alias,Location,Threat Level,Real Name,Weakness
+The Joker,Arkham Asylum,High,Jack Napier,Harley
 Harley Quinn,Unknown,Medium,Harlene Quinzel,Joker
 Killer Croc,Stonegate,High,Waylon Jones,Low Intellect
 Red Hood,Unknown,High,Jason Todd,Rage

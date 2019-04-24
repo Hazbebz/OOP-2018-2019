@@ -71,7 +71,6 @@ public class Villain{
     public String getThreat_Level() {
         return Threat_Level;
     }
-
     /**
      * @return the weakness
      */
@@ -85,10 +84,10 @@ public class Villain{
     public void setWeakness(String weakness) {
         Weakness = weakness;
     }
-    
+
     public String toString()
     {
-        return Alias + "\t" + Location + "\t" + Threat_Level + "\t" + Name ;
+        return Alias + "\t" + Location + "\t" + Threat_Level + "\t" + Name + "\t" + Weakness;
     }
 
     public Villain(TableRow row)
@@ -97,6 +96,7 @@ public class Villain{
         Location = row.getString("Location");
         Threat_Level = row.getString("Threat_Level");
         Name = row.getString("Name");
+        Weakness = row.getString("Weakness");
     }
 
     public Villain()

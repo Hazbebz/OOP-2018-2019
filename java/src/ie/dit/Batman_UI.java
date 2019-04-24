@@ -44,22 +44,23 @@ public class Batman_UI extends PApplet
         int x = 250;
         int y = 425;
         int ygap = 10;
-        int xgap = 50;
+        int xgap = 60;
         for(int i = 0 ; i < villains.size() ; i ++)
         {
             Villain villain = villains.get(i);
             stroke(0,255,0);
-            textAlign(CENTER, CENTER);
+            textAlign(LEFT, CENTER);
             fill(0,255,0);
             text(villain.getAlias(),x,y + ygap);
             x += 60;
             text(villain.getLocation(),x + xgap,y + ygap);
-            x += 80;
+            x += 100;
             text(villain.getThreat_level(),x+ xgap,y + ygap);
             x += 100;
             text(villain.getName(),x + xgap,y + ygap);
             x+=100;
-           // text(villain.getWeakness(),x + xgap,y + ygap);
+            text(villain.getWeakness(),x + xgap,y + ygap);
+
             y +=28;
             x=250;
         }
