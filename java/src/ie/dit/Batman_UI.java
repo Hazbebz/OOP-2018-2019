@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import processing.core.PApplet;
 import processing.data.Table;
 import processing.data.TableRow;
+import java.awt.Font;
+import java.awt.Graphics;
+import javax.swing.*;
 
 
 public class Batman_UI extends PApplet
@@ -20,6 +23,7 @@ public class Batman_UI extends PApplet
     {
         loadData();   
         printVills();
+        
 
     }
 
@@ -51,6 +55,7 @@ public class Batman_UI extends PApplet
             stroke(0,255,0);
             textAlign(LEFT, CENTER);
             fill(0,255,0);
+           // g.setFont(new Font("monospaced",Font.BOLD));
             text(villain.getAlias(),x,y + ygap);
             x += 60;
             text(villain.getLocation(),x + xgap,y + ygap);
@@ -93,6 +98,35 @@ public class Batman_UI extends PApplet
         line(775,10,775,590);
     }
 
+    
+    public void Bat_symbol()
+    {
+        noFill();
+        beginShape();
+        vertex(270,150);
+        vertex(420,150);
+        vertex(440,180);
+        vertex(460,130);
+        vertex(470,150);
+        vertex(490,150);
+        vertex(500,130);
+        vertex(520,180);
+        vertex(540,150);
+        vertex(690,150);
+        vertex(620,200);
+        vertex(620,210);
+        vertex(580,230);
+        vertex(580,240);
+        vertex(485,300);
+        vertex(380,240);
+        vertex(380,230);
+        vertex(340,210);
+        vertex(340,200);
+        vertex(270,150);
+        endShape();
+
+    }
+
     public void drawEllipse(){
         int ellipse_x1 = 882;
         int ellipse_y1 = 485;
@@ -115,6 +149,7 @@ public class Batman_UI extends PApplet
         drawFrame();
         drawEllipse();
         villains_to_screen();
+        Bat_symbol();
     }
 
     private ArrayList<Villain> villains = new ArrayList<Villain>();
