@@ -101,7 +101,7 @@ public class Batman_UI extends PApplet
     
     public void Bat_symbol()
     {
-        noFill();
+        
         beginShape();
         vertex(270,150);
         vertex(420,150);
