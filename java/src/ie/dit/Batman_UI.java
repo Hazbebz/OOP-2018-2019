@@ -7,8 +7,6 @@ import processing.core.PApplet;
 import processing.data.Table;
 import processing.data.TableRow;
 import java.awt.Font;
-import java.awt.Graphics;
-import javax.swing.*;
 
 
 public class Batman_UI extends PApplet
@@ -30,11 +28,18 @@ public class Batman_UI extends PApplet
     public void loadData()
     {
         Table table = loadTable("Villains.csv","header");
+        Table table_2 =loadTable("Contact.csv","header");
 
         for (TableRow row : table.rows()) 
         {
             Villain villain = new Villain(row);
             villains.add(villain);
+        }
+
+        for (TableRow row : table_2.rows()) 
+        {
+            Contact contact = new Contact(row);
+            contacts.add(contact);
         }
     }
 
@@ -101,7 +106,14 @@ public class Batman_UI extends PApplet
     
     public void Bat_symbol()
     {
-        
+        int x =480; 
+        int y=210;
+        int width =500;
+        int height =300; 
+        fill(0,255,0);
+        ellipse(x,y,width,height);
+
+        fill(0);
         beginShape();
         vertex(270,150);
         vertex(420,150);
@@ -143,6 +155,31 @@ public class Batman_UI extends PApplet
         }
     }
 
+    float border = 20;
+    float buttonWidth = 170;
+    float buttonHeight = 75;
+    float gap = 50;
+
+
+    void drawButtons()
+    {
+        for(int i = 0 ; i < contacts.size(); i ++)
+        {
+            Contact contact = contacts.get(i);
+
+            float y = border + (i * (buttonHeight + gap));
+            float x = border;
+            noFill();
+            stroke(0,255,0);
+            rect(x, y, buttonWidth, buttonHeight);
+            textAlign(CENTER, CENTER);
+            fill(0);
+            stroke(0,255,0);
+            fill(0,255,0);
+            text(contact.getContact(),  x + buttonWidth * 0.5f, y + buttonHeight * 0.5f);
+        }
+    }
+
     public void draw()
     {
         background(0);
@@ -150,7 +187,9 @@ public class Batman_UI extends PApplet
         drawEllipse();
         villains_to_screen();
         Bat_symbol();
+        drawButtons();
     }
 
     private ArrayList<Villain> villains = new ArrayList<Villain>();
+    private ArrayList<Contact> contacts = new ArrayList<Contact>();
 }
