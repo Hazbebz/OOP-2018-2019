@@ -20,16 +20,17 @@ public class Batman_UI extends PApplet
     public void setup()
     {
         loadData();   
-        printVills();
-        
-
+        printVills();//function call to print out villains.csv to debug console 
+        myWindow = new Window(this);
     }
+    Window myWindow;
 
     public void loadData()
     {
-        Table table = loadTable("Villains.csv","header");
-        Table table_2 =loadTable("Contact.csv","header");
+        Table table = loadTable("Villains.csv","header");//load villains.csv table 
+        Table table_2 =loadTable("Contact.csv","header");//load contacts table 
 
+        //for loops to add csv table data to array list 
         for (TableRow row : table.rows()) 
         {
             Villain villain = new Villain(row);
@@ -44,11 +45,13 @@ public class Batman_UI extends PApplet
     }
 
     public void printVills() {
+        //for loop to outprint all villains and their details 
         for (Villain villain : villains) {
             System.out.println(villain);
         }
     }
 
+    //out putting the villains to the lower quadrant of the screen 
     public void villains_to_screen() {
         int x = 250;
         int y = 425;
@@ -76,6 +79,7 @@ public class Batman_UI extends PApplet
         }
     }
     
+    //constructs the framework for the jFrame
     public void drawFrame()
     {
         //outer frame for screen objects
@@ -103,7 +107,7 @@ public class Batman_UI extends PApplet
         line(775,10,775,590);
     }
 
-    
+    //start of drawing bat symbol 
     public void Bat_symbol()
     {
         int x =480; 
@@ -138,7 +142,9 @@ public class Batman_UI extends PApplet
         endShape();
 
     }
+    //end of bat symbol drawing 
 
+    //drawing ellipses for radar
     public void drawEllipse(){
         int ellipse_x1 = 882;
         int ellipse_y1 = 485;
@@ -154,12 +160,12 @@ public class Batman_UI extends PApplet
             width-=40;
         }
     }
-
+    //initialise variables to for drawButtons() and mouseClicked()
     float border = 20;
     float buttonWidth = 170;
     float buttonHeight = 75;
     float gap = 50;
-
+    //function to draw buttons for the left hand quadrant of the screen.
     void drawButtons()
     {
         for(int i = 0 ; i < contacts.size(); i ++)
@@ -194,8 +200,14 @@ public class Batman_UI extends PApplet
 
         if (which != -1)
         {
-            System.out.println("Buttons working");
+            myWindow.draw();
         }
+    }
+    public void popUpWindow()
+    {
+        stroke(0,255,0);
+        fill(0);
+        rect(225,50,525,325);
     }
 
     public void draw()
@@ -206,6 +218,7 @@ public class Batman_UI extends PApplet
         villains_to_screen();
         Bat_symbol();
         drawButtons();
+        myWindow.draw();
     }
 
     private ArrayList<Villain> villains = new ArrayList<Villain>();
