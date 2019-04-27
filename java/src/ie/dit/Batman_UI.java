@@ -160,7 +160,6 @@ public class Batman_UI extends PApplet
     float buttonHeight = 75;
     float gap = 50;
 
-
     void drawButtons()
     {
         for(int i = 0 ; i < contacts.size(); i ++)
@@ -177,6 +176,25 @@ public class Batman_UI extends PApplet
             stroke(0,255,0);
             fill(0,255,0);
             text(contact.getContact(),  x + buttonWidth * 0.5f, y + buttonHeight * 0.5f);
+        }
+    }
+
+    public void mouseClicked()
+    {
+        int which = -1;
+
+        // The best way!!
+        if ((mouseX > border && mouseX < border + buttonWidth))
+        {
+            if ((mouseY - border) % (buttonHeight + gap) < buttonHeight)
+            {
+                which = (int) ((mouseY - border) / (buttonHeight + gap));
+            }
+        }
+
+        if (which != -1)
+        {
+            System.out.println("Buttons working");
         }
     }
 
