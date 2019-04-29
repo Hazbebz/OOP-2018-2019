@@ -6,25 +6,27 @@ import java.util.ArrayList;
 import processing.core.PApplet;
 import processing.data.Table;
 import processing.data.TableRow;
-import java.awt.Font;
+
 
 
 public class Batman_UI extends PApplet
 {
-
+    float alfred_x1;
+    float alfred_y1;
+    float batmobile_x1;
+    float batmobile_y1;
+    float batplane_x1;
+    float batplane_y1;
+    float alfred_x2;
+    float alfred_y2;
+    float batmobile_x2;
+    float batmobile_y2;
+    float batplane_x2;
+    float batplane_y2;
     public void settings()
     {
         size(1000,600);
     }
-
-    public void setup()
-    {
-        loadData();   
-        printVills();//function call to print out villains.csv to debug console 
-        radar = new Radar(this, 1, width / 2, height / 2, 100);
-    }
-    Radar radar;
-    
 
     public void loadData()
     {
@@ -37,13 +39,33 @@ public class Batman_UI extends PApplet
             Villain villain = new Villain(row);
             villains.add(villain);
         }
-
+        /*
         for (TableRow row : table_2.rows()) 
         {
             Contact contact = new Contact(row);
             contacts.add(contact);
         }
+        */
+        for (TableRow row : table_2.rows()) 
+        {
+            Contact contact = new Contact(row);
+            contacts.add(contact);
+        }
+
+
     }
+    
+    public void setup()
+    {
+        loadData();   
+        printVills();//function call to print out villains.csv to debug console 
+        radar = new Radar(this, 1, width / 2, height / 2, 100);
+        mouse_click = new Buttons(this,alfred_x1,alfred_y1,batmobile_x1,batmobile_y1,batplane_x1,batplane_y1,alfred_x2,alfred_y2,batmobile_x2,batmobile_y2,batplane_x2,batplane_y2);
+    }
+    Radar radar;
+    Buttons mouse_click;
+    
+
 
     public void printVills() {
         //for loop to outprint all villains and their details 
@@ -144,13 +166,14 @@ public class Batman_UI extends PApplet
 
     }
     //end of bat symbol drawing 
-
+    
     //initialise variables to for drawButtons() and mouseClicked()
     float border = 20;
     float buttonWidth = 170;
     float buttonHeight = 75;
     float gap = 50;
     //function to draw buttons for the left hand quadrant of the screen.
+    
     void drawButtons()
     {
         for(int i = 0 ; i < contacts.size(); i ++)
@@ -205,10 +228,6 @@ public class Batman_UI extends PApplet
             text(contact.getContact(),  230 , 55 );
     }
 
-    public void render()
-    {
-
-    }
     public void draw()
     {
         background(0);
@@ -219,6 +238,8 @@ public class Batman_UI extends PApplet
 
         radar.update();
         radar.render();
+
+        mouse_click.render();
 
     }
 

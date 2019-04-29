@@ -6,7 +6,6 @@ public class Contact
 {
     private String Contact;
 
-
     /**
      * @return the contact
      */
