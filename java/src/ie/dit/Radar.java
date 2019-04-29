@@ -15,7 +15,7 @@ public class Radar extends PApplet
     {
         this.ui = ui;
         this.frequency = frequency;
-        pos = new PVector(882, 300);
+        pos = new PVector(882, 150);
         this.radius = radius;
     }
     
@@ -23,7 +23,7 @@ public class Radar extends PApplet
     public void render()
     {
         int ellipse_x1 = 882;
-        int ellipse_y1 = 300;
+        int ellipse_y1 = 150;
         int width = 200;
         int height = 200;
         int num_ellipses = 5;

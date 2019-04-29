@@ -60,10 +60,10 @@ public class Batman_UI extends PApplet
         loadData();   
         printVills();//function call to print out villains.csv to debug console 
         radar = new Radar(this, 1, width / 2, height / 2, 100);
-        mouse_click = new Buttons(this,alfred_x1,alfred_y1,batmobile_x1,batmobile_y1,batplane_x1,batplane_y1,alfred_x2,alfred_y2,batmobile_x2,batmobile_y2,batplane_x2,batplane_y2);
+        //b = new Buttons(this,alfred_x1,alfred_y1,batmobile_x1,batmobile_y1,batplane_x1,batplane_y1,alfred_x2,alfred_y2,batmobile_x2,batmobile_y2,batplane_x2,batplane_y2);
     }
     Radar radar;
-    Buttons mouse_click;
+    //Buttons b;
     
 
 
@@ -84,6 +84,7 @@ public class Batman_UI extends PApplet
         {
             Villain villain = villains.get(i);
             stroke(0,255,0);
+            textSize(12);
             textAlign(LEFT, CENTER);
             fill(0,255,0);
            // g.setFont(new Font("monospaced",Font.BOLD));
@@ -206,7 +207,7 @@ public class Batman_UI extends PApplet
                 which = (int) ((mouseY - border) / (buttonHeight + gap));
                     if(which !=-1)
                     {
-                       popUpWindow();
+                       
                     }
             }
         }
@@ -239,7 +240,7 @@ public class Batman_UI extends PApplet
         radar.update();
         radar.render();
 
-        mouse_click.render();
+       
 
     }
 

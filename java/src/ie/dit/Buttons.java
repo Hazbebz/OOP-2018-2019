@@ -1,4 +1,4 @@
-
+/*
 package ie.dit;
 
 import processing.core.PApplet;
@@ -24,6 +24,7 @@ public class Buttons extends PApplet
 
     public Buttons(Batman_UI ui,float alfred_x1,float alfred_y1,float batmobile_x1,float batmobile_y1,float batplane_x1,float batplane_y1,float alfred_x2,float alfred_y2,float batmobile_x2,float batmobile_y2,float batplane_x2,float batplane_y2)
     {
+        /*
         this.alfred_x1=alfred_x1;
         this.alfred_y1=alfred_y1;
         this.batmobile_x1 = batmobile_x1;
@@ -51,19 +52,9 @@ public class Buttons extends PApplet
         
 
     }
-
-    public void render()
-    {
-        if(ui.mousePressed)
-        {
-            if(ui.mouseX > alfred_x1 && ui.mouseX < alfred_x2 && ui.mouseY> alfred_y1)
-            {
-               
-            }
-        }
-    }
+*/
+    
+    
 
     
-        
 
-}
