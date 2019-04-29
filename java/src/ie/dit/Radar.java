@@ -11,6 +11,7 @@ public class Radar extends PApplet
     private Batman_UI ui;
     private float theta = 0;
 
+    //allows Batman_ui to access neeeded variables for radar
     public Radar(Batman_UI ui, float frequency, float x, float y, float radius)
     {
         this.ui = ui;
@@ -19,7 +20,7 @@ public class Radar extends PApplet
         this.radius = radius;
     }
     
-
+    //function to render the radar for Batman_UI
     public void render()
     {
         int ellipse_x1 = 882;
@@ -30,6 +31,7 @@ public class Radar extends PApplet
         ui.stroke(0,255,0);
         ui.noFill();
         ui.ellipse(pos.x, pos.y, radius * 2, radius * 2);
+        //draws the rings for the inner elements of the radar
         for(int i = 0 ; i < num_ellipses;i++)
         {
             ui.ellipse(ellipse_x1,ellipse_y1,width,height);
@@ -41,13 +43,14 @@ public class Radar extends PApplet
         ui.line(pos.x, pos.y, x2, y2);
     }
 
-    float timeDelta = 1.0f / 60.0f;
-
+    float timeDelta = 1.0f / 60.0f;//controls the speed of the line within the radar 
+    //method to update the line
     public void update()
     {
         theta += PApplet.TWO_PI * timeDelta * frequency;
     }
 
+    //getters and setters 
     /**
      * @return the radius
      */

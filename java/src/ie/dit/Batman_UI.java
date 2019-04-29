@@ -60,17 +60,15 @@ public class Batman_UI extends PApplet
         loadData();   
         printVills();//function call to print out villains.csv to debug console 
         radar = new Radar(this, 1, width / 2, height / 2, 100);
-        //b = new Buttons(this,alfred_x1,alfred_y1,batmobile_x1,batmobile_y1,batplane_x1,batplane_y1,alfred_x2,alfred_y2,batmobile_x2,batmobile_y2,batplane_x2,batplane_y2);
     }
     Radar radar;
-    //Buttons b;
     
 
 
     public void printVills() {
         //for loop to outprint all villains and their details 
         for (Villain villain : villains) {
-            System.out.println(villain);
+            System.out.println(villain);//prtints out all villain deatails to debug console
         }
     }
 
@@ -177,20 +175,20 @@ public class Batman_UI extends PApplet
     
     void drawButtons()
     {
-        for(int i = 0 ; i < contacts.size(); i ++)
+        for(int i = 0 ; i < contacts.size(); i ++)//draws 3 buttons ie the size of contacts
         {
-            Contact contact = contacts.get(i);
+            Contact contact = contacts.get(i);//gets each button name from the arraylist 
 
             float y = border + (i * (buttonHeight + gap));
             float x = border;
             noFill();
-            stroke(0,255,0);
+            stroke(0,255,0);//green
             rect(x, y, buttonWidth, buttonHeight);
             textAlign(CENTER, CENTER);
             fill(0);
             stroke(0,255,0);
             fill(0,255,0);
-            text(contact.getContact(),  x + buttonWidth * 0.5f, y + buttonHeight * 0.5f);
+            text(contact.getContact(),  x + buttonWidth * 0.5f, y + buttonHeight * 0.5f);//adds contact name to button
         }
     }
 
@@ -207,26 +205,16 @@ public class Batman_UI extends PApplet
                 which = (int) ((mouseY - border) / (buttonHeight + gap));
                     if(which !=-1)
                     {
-                       
+                      
                     }
             }
         }
         
     }
     
-    public void popUpWindow()
+    public void alfredResponse()
     {
-            which = (int) ((mouseY - border) / (buttonHeight + gap));
-            Contact contact = contacts.get(which);
-            fill(0);
-            stroke(0,255,0);
-            rect(225,50,525,325);
-            textAlign(LEFT, CENTER);
-            fill(0);
-            stroke(0,255,0);
-            fill(0,255,0);
-        
-            text(contact.getContact(),  230 , 55 );
+        text("Yes sir ?",822,400);
     }
 
     public void draw()
@@ -240,7 +228,17 @@ public class Batman_UI extends PApplet
         radar.update();
         radar.render();
 
-       
+        if ((mouseX > border && mouseX < border + buttonWidth))
+        {
+            if ((mouseY - border) % (buttonHeight + gap) < buttonHeight)
+            {
+                which = (int) ((mouseY - border) / (buttonHeight + gap));
+                    if(which !=-1)
+                    {
+                      alfredResponse();
+                    }
+            }
+        }
 
     }
 
