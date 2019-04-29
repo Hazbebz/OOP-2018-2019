@@ -21,9 +21,10 @@ public class Batman_UI extends PApplet
     {
         loadData();   
         printVills();//function call to print out villains.csv to debug console 
-        myWindow = new Window(this);
+        radar = new Radar(this, 1, width / 2, height / 2, 100);
     }
-    Window myWindow;
+    Radar radar;
+    
 
     public void loadData()
     {
@@ -144,22 +145,6 @@ public class Batman_UI extends PApplet
     }
     //end of bat symbol drawing 
 
-    //drawing ellipses for radar
-    public void drawEllipse(){
-        int ellipse_x1 = 882;
-        int ellipse_y1 = 485;
-        int width = 200;
-        int height = 200;
-        int num_ellipses = 5;
-
-
-        for(int i = 0 ; i < num_ellipses;i++)
-        {
-            ellipse(ellipse_x1,ellipse_y1,width,height);
-            height -=40;
-            width-=40;
-        }
-    }
     //initialise variables to for drawButtons() and mouseClicked()
     float border = 20;
     float buttonWidth = 170;
@@ -185,40 +170,56 @@ public class Batman_UI extends PApplet
         }
     }
 
+    int which = -1;
+    
     public void mouseClicked()
     {
-        int which = -1;
-
-        // The best way!!
-        if ((mouseX > border && mouseX < border + buttonWidth))
+        //int which = -1;
+        
+       if ((mouseX > border && mouseX < border + buttonWidth))
         {
             if ((mouseY - border) % (buttonHeight + gap) < buttonHeight)
             {
                 which = (int) ((mouseY - border) / (buttonHeight + gap));
+                    if(which !=-1)
+                    {
+                       popUpWindow();
+                    }
             }
         }
-
-        if (which != -1)
-        {
-            myWindow.draw();
-        }
+        
     }
+    
     public void popUpWindow()
     {
-        stroke(0,255,0);
-        fill(0);
-        rect(225,50,525,325);
+            which = (int) ((mouseY - border) / (buttonHeight + gap));
+            Contact contact = contacts.get(which);
+            fill(0);
+            stroke(0,255,0);
+            rect(225,50,525,325);
+            textAlign(LEFT, CENTER);
+            fill(0);
+            stroke(0,255,0);
+            fill(0,255,0);
+        
+            text(contact.getContact(),  230 , 55 );
     }
 
+    public void render()
+    {
+
+    }
     public void draw()
     {
         background(0);
         drawFrame();
-        drawEllipse();
         villains_to_screen();
         Bat_symbol();
         drawButtons();
-        myWindow.draw();
+
+        radar.update();
+        radar.render();
+
     }
 
     private ArrayList<Villain> villains = new ArrayList<Villain>();
