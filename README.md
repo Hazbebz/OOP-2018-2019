@@ -4,7 +4,19 @@ Name:Harry Bebbington
 
 Student Number: C17319656
 
-Fork this repository and use it a starter project for your assignment
+
+Im Afraid That i did not fork this repository for my assignment and would like to apologize for any complications that may occur 
+as a result of this. I started working away on this assignment in my forked repository of OOP-2018-2019. As a result i had to add
+the README.md myslef and some of the other code segments from your repository are in my asssignment branch.
+
+The important files for this assignment are as follows
+Batman_UI.java
+Main.java
+Villain.java
+Contact.java
+Radar.java
+Villain.csv
+Contact.csv
 
 # Description of the assignment
 This Assignment is aimed to be a basic example of the of the Ui used in
@@ -14,11 +26,21 @@ view of his most wanted from the Batman under the red hood series, access to a r
 ability to call either alfred, the batmobile or the batplane.
 
 # Instructions
+First to access the program we must get into the correct branch
+git checkout assignment
+Once here all code segments should be available 
+
 Clicking the buttons
 	Click each name withing each button in order to activate the buuton
 	Look to the left hand side of the screen in order to see the result
 
 # How it works
+Table-Csv file loaded in through Villains.java and stored in an arraylist then outputted to screen
+Buttons- Drawn and made withing Batman_UI.java- uses mousepressed in order to determine location.
+Batman logo- Drawn using vertexs and was custom drawn by me.
+Radar- Implemented in radar.java- given a radius, position, frequency(for the line),and theta to get equation of the circle used.
+	image updates constantly to display moving line.
+Contact- Csv file names for buttons
 	
 
 # What I am most proud of in the assignment
