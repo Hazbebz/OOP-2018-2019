@@ -5,11 +5,11 @@ import processing.core.PVector;
 
 public class Radar extends PApplet
 {
-    private float radius;
-    private PVector pos;
-    private float frequency;
+    private float radius;//radius of the radar
+    private PVector pos;// position of the radar
+    private float frequency;//frequency of refresh rate
     private Batman_UI ui;
-    private float theta = 0;
+    private float theta = 0;//get the equation of the circle
 
     //allows Batman_ui to access neeeded variables for radar
     public Radar(Batman_UI ui, float frequency, float x, float y, float radius)
