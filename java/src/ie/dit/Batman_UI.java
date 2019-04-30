@@ -1,4 +1,16 @@
-//Controlling class that allows for drawing 
+/*
+OOP Assignment 
+By: Harry Bebbington
+Student Num: C17319656
+Email: C17319656@mydit.ie
+Year: Dt282/2
+
+This Assignment is aimed to be a basic example of the of the Ui used in
+the Batman Arkham game series. The screen that pops up on Batmans wrist and 
+displays various functions for batman to access. In this case Batman would have constant
+view of his most wanted from the Batman under the red hood series, access to a radar,and the
+ability to call either alfred, the batmobile or the batplane.
+*/
 package ie.dit;
 
 import java.util.ArrayList;
@@ -227,5 +239,6 @@ public class Batman_UI extends PApplet
 
     }
 
-    private ArrayList<Villain> villains = new ArrayList<Villain>();//array list definition
-    private ArrayList<Contact> contacts = new ArrayList<Contact>();//array list definition
+    private ArrayList<Villain> villains = new ArrayList<Villain>();//array list definition villains
+    private ArrayList<Contact> contacts = new ArrayList<Contact>();//array list definition contacts
+}
