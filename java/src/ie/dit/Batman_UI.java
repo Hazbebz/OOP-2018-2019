@@ -214,12 +214,12 @@ public class Batman_UI extends PApplet
 
         if(value == 2)
         {
-            text("Batmobile will is within : " +d1 + dist  ,875,500);//outputs batmobile response
+            text("Batmobile is within : " +d1 + dist  ,875,500);//outputs batmobile response
         }
 
         if(value == 3)
         {
-            text("Batplane Will arrive in:  " + d2 + dist ,875,550);//outputs  batplane response
+            text("Batplane is within:  " + d2 + dist ,875,550);//outputs  batplane response
         }
         
     }
