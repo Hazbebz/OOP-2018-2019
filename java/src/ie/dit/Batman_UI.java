@@ -7,25 +7,11 @@ import processing.core.PApplet;
 import processing.data.Table;
 import processing.data.TableRow;
 
-
-
 public class Batman_UI extends PApplet
 {
-    float alfred_x1;
-    float alfred_y1;
-    float batmobile_x1;
-    float batmobile_y1;
-    float batplane_x1;
-    float batplane_y1;
-    float alfred_x2;
-    float alfred_y2;
-    float batmobile_x2;
-    float batmobile_y2;
-    float batplane_x2;
-    float batplane_y2;
     public void settings()
     {
-        size(1000,600);
+        size(1000,600);//size of the window
     }
 
     public void loadData()
@@ -39,32 +25,21 @@ public class Batman_UI extends PApplet
             Villain villain = new Villain(row);
             villains.add(villain);
         }
-        /*
         for (TableRow row : table_2.rows()) 
         {
             Contact contact = new Contact(row);
             contacts.add(contact);
         }
-        */
-        for (TableRow row : table_2.rows()) 
-        {
-            Contact contact = new Contact(row);
-            contacts.add(contact);
-        }
-
-
     }
     
     public void setup()
     {
-        loadData();   
+        loadData(); //loads data from array lists 
         printVills();//function call to print out villains.csv to debug console 
-        radar = new Radar(this, 1, width / 2, height / 2, 100);
+        radar = new Radar(this, 1, width / 2, height / 2, 100);//passsing radar variables
     }
-    Radar radar;
+    Radar radar;//instance of the radar
     
-
-
     public void printVills() {
         //for loop to outprint all villains and their details 
         for (Villain villain : villains) {
@@ -85,7 +60,6 @@ public class Batman_UI extends PApplet
             textSize(12);
             textAlign(LEFT, CENTER);
             fill(0,255,0);
-           // g.setFont(new Font("monospaced",Font.BOLD));
             text(villain.getAlias(),x,y + ygap);
             x += 60;
             text(villain.getLocation(),x + xgap,y + ygap);
@@ -105,8 +79,8 @@ public class Batman_UI extends PApplet
     public void drawFrame()
     {
         //outer frame for screen objects
-        stroke(0,255,0);
-        fill(0);
+        stroke(0,255,0);//green
+        fill(0);//black background
         line(10,10,10,590);
         line(10,590,40,590);
         line(40,590,60,550);
@@ -123,6 +97,8 @@ public class Batman_UI extends PApplet
         line(205,400,770,400);
         line(10,400,200,400);
         line(10,405,770,405);
+        line(775,300,990,300);//line to seperate radar and responses
+        line(775,305,990,305);//"       "       "       "
 
         line(770,10,770,400);
         line(770,405,770,590);
@@ -137,8 +113,9 @@ public class Batman_UI extends PApplet
         int width =500;
         int height =300; 
         fill(0,255,0);
-        ellipse(x,y,width,height);
-
+        ellipse(x,y,width,height);//green ellipse behind the bat symbol
+        
+        //vertexes used to create bat symbol shape 
         fill(0);
         beginShape();
         vertex(270,150);
@@ -166,7 +143,7 @@ public class Batman_UI extends PApplet
     }
     //end of bat symbol drawing 
     
-    //initialise variables to for drawButtons() and mouseClicked()
+    //initialise variables to for drawButtons()
     float border = 20;
     float buttonWidth = 170;
     float buttonHeight = 75;
@@ -191,30 +168,48 @@ public class Batman_UI extends PApplet
             text(contact.getContact(),  x + buttonWidth * 0.5f, y + buttonHeight * 0.5f);//adds contact name to button
         }
     }
-
-    int which = -1;
     
-    public void mouseClicked()
+    int value = 0;//value variable to determine which button has been pressed
+    public void Response()
     {
-        //int which = -1;
+        int d1 = 345;//distance 1
+        int d2 = 956;//distance 2
+
+        String dist = "m";// metere symbol
         
-       if ((mouseX > border && mouseX < border + buttonWidth))
+        text("Response",840,350);//outlines the area for responses
+        //if statements for button click locations on the left half of the screen
+        if(mousePressed)
         {
-            if ((mouseY - border) % (buttonHeight + gap) < buttonHeight)
+            if(mouseX > 20 && mouseX < 170 && mouseY > 55 && mouseY < 75)
             {
-                which = (int) ((mouseY - border) / (buttonHeight + gap));
-                    if(which !=-1)
-                    {
-                      
-                    }
+               value = 1;
+            }
+
+            if(mouseX > 20 && mouseX <170 && mouseY > 180 && mouseY <230)
+            {
+                value = 2;
+            }
+            if(mouseX > 20 && mouseX <170 && mouseY > 280 && mouseY <330)
+            {
+                value = 3;
             }
         }
+        if(value == 1)
+        {
+            text("How can I help you sir ?",865,450);//outputs alfreds button response
+        }
+
+        if(value == 2)
+        {
+            text("Batmobile will is within : " +d1 + dist  ,875,500);//outputs batmobile response
+        }
+
+        if(value == 3)
+        {
+            text("Batplane Will arrive in:  " + d2 + dist ,875,550);//outputs  batplane response
+        }
         
-    }
-    
-    public void alfredResponse()
-    {
-        text("Yes sir ?",822,400);
     }
 
     public void draw()
@@ -228,20 +223,9 @@ public class Batman_UI extends PApplet
         radar.update();
         radar.render();
 
-        if ((mouseX > border && mouseX < border + buttonWidth))
-        {
-            if ((mouseY - border) % (buttonHeight + gap) < buttonHeight)
-            {
-                which = (int) ((mouseY - border) / (buttonHeight + gap));
-                    if(which !=-1)
-                    {
-                      alfredResponse();
-                    }
-            }
-        }
+        Response();
 
     }
 
-    private ArrayList<Villain> villains = new ArrayList<Villain>();
-    private ArrayList<Contact> contacts = new ArrayList<Contact>();
-}
+    private ArrayList<Villain> villains = new ArrayList<Villain>();//array list definition
+    private ArrayList<Contact> contacts = new ArrayList<Contact>();//array list definition
